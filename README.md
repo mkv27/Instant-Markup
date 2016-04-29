@@ -1,5 +1,4 @@
-# jsonld-fbia
-Instant Markup App
+# Instant Markup App
 > A GUI way to make and transform your articles to Facebook Instant Articles
 
 ## Server side
