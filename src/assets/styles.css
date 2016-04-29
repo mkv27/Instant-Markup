@@ -1,0 +1,108 @@
+@font-face {
+  font-family:'Myriad Set Pro';
+  font-style:normal;
+  font-weight:200;
+  src:url("./myriad-set-pro_thin.woff") format("woff");
+  /* Copyright (c) 1992 Adobe Systems Incorporated. All Rights Reserved. Myriad is a trademark of Adobe Systems Incorporated. */
+}
+@font-face {
+  font-family:'Myriad Set Pro';
+  font-style:normal;
+  font-weight:400;
+  src:url("./myriad-set-pro_text.woff") format("woff");
+  /* Copyright (c) 1992 Adobe Systems Incorporated. All Rights Reserved. Myriad is a trademark of Adobe Systems Incorporated. */
+}
+
+/**
+    *
+    * GUI
+    *
+ */
+body{
+  font-family: 'Myriad Set Pro', 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
+}
+.main{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(249,250,247,0.5);
+  -webkit-app-region: drag;
+  overflow: hidden;
+}
+.videobg{
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+}
+.videohover{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(249,250,247,0.2);
+}
+
+/**
+  * Form
+ */
+
+.form{
+  -webkit-app-region: no-drag;
+  position: absolute;
+  z-index: 9999;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+}
+.input{
+  outline: none;
+  border:none;
+  font-size: 18px;
+  line-height: 21.6px;
+  background: rgba(255,255,255,0.92);
+  font-family: 'Myriad Set Pro', 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 54px 10px 14px;
+  border-radius: 5px;
+  width: 380px;
+  transition: all 0.11s linear;
+}
+.input:focus{
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.3);
+  background: rgba(255,255,255,0.99);
+  transform: translate(0%, -1%);
+}
+.button{
+  cursor: pointer;
+  background-color: transparent;
+  background-image: url(./sendicon.svg);
+  background-size: 36px;
+  outline: none;
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  border: none;
+  display: block;
+  width: 36px;
+  height: 36px;
+  transition: all 0.11s linear;
+}
+
+#footer{
+  font-size: 10px;
+  color:rgba(255,255,255,0.5);
+  position:absolute;
+  z-index: 999;
+  bottom: 6px;
+  left: 6px;
+  cursor: default;
+  -webkit-user-select: none;
+}

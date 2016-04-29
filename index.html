@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./src/assets/styles.css">
+  </head>
+  <body>
+    <div class="main">
+      <video class="videobg" autoplay="1" loop="1">
+        <source type="video/mp4" src="./src/assets/fb-ina_new-deliverables_720.mp4">
+      </video>
+      <div class="videohover"></div>
+      <form class="form" onsubmit="return app.jsonld(document.getElementsByClassName('input')[0].value)">
+        <input type="text" name="urlinput" placeholder="Paste your URL" class="input">
+        <input type="button" onclick="app.jsonld(document.getElementsByClassName('input')[0].value)" class="button" />
+      </form>
+      <div id="footer"></div>
+    </div>
+
+    <script type="text/javascript">
+      var app = require('./src/app');
+      app.executeOnLoad();
+    </script>
+   <!-- <script src="render_app/index.js" type="text/javascript"></script>-->
+
+  </body>
+</html>
