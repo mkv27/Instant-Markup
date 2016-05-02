@@ -1,3 +1,4 @@
+const app = require('electron').app;
 const Menu = require('menu');  
 const template = require('../menus/darwin.json');
 var menuTemplate = template.menu;
@@ -27,7 +28,7 @@ var helpers = {
 var transformCommandTemplate = function(templateObject){
 	helpers.forEachMenuItem(templateObject,function(keymenu,keyitem,item){
 		if( item.command && item.command.startsWith('application:') ){
-			if( item.command.split(":")[1] == 'click' ){
+			if( item.command.split(":")[1] == 'quit' ){
 				menuTemplate[keymenu].submenu[keyitem].click = function(){app.quit();}
 				delete menuTemplate[keymenu].submenu[keyitem].command;
 			}

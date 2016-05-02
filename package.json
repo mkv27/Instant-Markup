@@ -1,6 +1,6 @@
 {
   "name": "instant-markup",
-  "version": "0.1.0-alpha",
+  "version": "0.1.1-alpha",
   "description": "A GUI way to make and transform your articles to Facebook Instant Articles",
   "main": "main.js",
   "scripts": {

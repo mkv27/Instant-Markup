@@ -1,11 +1,10 @@
 const ifembed = require('./Embeds');
 
 module.exports.html = {
-	image(src,caption){
+	image(src){
 		return `
 			<figure>
 				<img src="${src}" />
-				<figcaption>${caption}</figcaption>
 			</figure>
 		`;
 	},

@@ -1,10 +1,3 @@
-/**
-    * Instant Markup v0.1.0-alpha
-    *
-    * Copyright (c) 2016 mkv27
-    * MIT Licensed
- */
-
 const request = require('request');
 const fs = require('fs');
 const cheerio = require('cheerio');
@@ -18,6 +11,7 @@ const dock = require('electron').remote.app.dock;
 
 //Transform
 const elements = require('./Elements');
+const Transformer = require('./Transformer');
 
 
 moment.updateLocale('es',{
@@ -76,13 +70,14 @@ var jsonld_exec = function(url){
             $(".op-published,.op-modified").attr("dateTime",web_time).html(web_time_format);
             $("address").html(web_author);
 
+            console.log($(web_content));
             var parray = [];
             $(web_content).each(function(i, elem) {
-                //console.log(elem.children[0].name);
+                let innerhtml = Transformer(elem,0);
                 if(elem.children[0].type == 'tag' && elem.children[0].name == 'iframe'){
                     parray[i] = elements.html.socialembed($(this).html());
                 }else{
-                    parray[i] = `<p>${$(this).html()}</p>`;
+                    parray[i] = `<p>${innerhtml}</p>`;
                 } 
             });
             parray = endOfLine + endOfLine + parray.join(endOfLine+endOfLine);

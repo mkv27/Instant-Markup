@@ -1,3 +1,10 @@
+/**
+    * Instant Markup v0.1.1-alpha
+    *
+    * Copyright (c) 2016 mkv27
+    * MIT Licensed
+ */
+
 'use strict';
 
 const electron = require('electron');
@@ -20,7 +27,7 @@ function createWindow () {
 
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 
-  //mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', function() {
     mainWindow = null;
