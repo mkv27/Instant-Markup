@@ -73,12 +73,13 @@ var jsonld_exec = function(url){
             console.log($(web_content));
             var parray = [];
             $(web_content).each(function(i, elem) {
-                let innerhtml = Transformer(elem,0);
-                if(elem.children[0].type == 'tag' && elem.children[0].name == 'iframe'){
+                parray[i] = Transformer(elem,0);
+                /*if(elem.children[0].type == 'tag' && elem.children[0].name == 'iframe'){
                     parray[i] = elements.html.socialembed($(this).html());
-                }else{
+                }
+                else{
                     parray[i] = `<p>${innerhtml}</p>`;
-                } 
+                }*/
             });
             parray = endOfLine + endOfLine + parray.join(endOfLine+endOfLine);
 

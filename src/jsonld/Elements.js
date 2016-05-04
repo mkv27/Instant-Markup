@@ -2,11 +2,7 @@ const ifembed = require('./Embeds');
 
 module.exports.html = {
 	image(src){
-		return `
-			<figure>
-				<img src="${src}" />
-			</figure>
-		`;
+		return `<figure><img src="${src}" /></figure>`;
 	},
 	socialembed(iframe){
 		if( ifembed(iframe) )

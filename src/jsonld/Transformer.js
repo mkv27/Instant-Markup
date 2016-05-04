@@ -1,7 +1,8 @@
 const Elements = require('./Elements');
+const $ = require('cheerio');
 
 var data = "";
-var analyser = function analyser (node,i){
+var analyzer = function analyzer (node,i){
 	//If data
 	//for(let children of node.children){
 	if(i==0)
@@ -10,15 +11,18 @@ var analyser = function analyser (node,i){
 		for(let key of Object.keys(node.children)){
 			if( node.children[key].type == 'tag' ){
 
-				if (node.children[key].name == 'img'){
+				if ( node.children[key].name == 'img' ){
 					data = data + Elements.html.image(node.children[key].attribs.src);
+				}else if ( node.children[key].name == 'iframe' ){
+					let tmp = $.html(node.children[key]);
+					data = data + Elements.html.socialembed(tmp);
 				}else if(node.children[key].name == 'a'){
 					data = `${data}<${node.children[key].name} href="${node.children[key].attribs.href}">`;
-					analyser(node.children[key]);
+					analyzer(node.children[key]);
 					data = `${data}</${node.children[key].name}>`;
 				}else{
 					data = `${data}<${node.children[key].name}>`;
-					analyser(node.children[key]);
+					analyzer(node.children[key]);
 					data = `${data}</${node.children[key].name}>`;
 				}
 			}
@@ -31,4 +35,22 @@ var analyser = function analyser (node,i){
 	return data;
 }
 
-module.exports = analyser;
+function Transformer(node,i){
+	let data = analyzer(node,i);
+	console.log(data);
+
+	if( $('iframe',data).length > 0 ){
+		let tmp = $('iframe',data);
+		data = $.html(tmp);
+	}else if( $('figure',data).length > 0 ){
+		let tmp = $('figure',data);
+		data = $.html(tmp);
+	}else{
+		data = `<p>${data}</p>`;
+	}
+
+	return data;
+
+}
+
+module.exports = Transformer;
