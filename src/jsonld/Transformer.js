@@ -37,10 +37,10 @@ var analyzer = function analyzer (node,i){
 
 function Transformer(node,i){
 	let data = analyzer(node,i);
-	console.log(data);
+	//console.log(data);
 
-	if( $('iframe',data).length > 0 ){
-		let tmp = $('iframe',data);
+	if( $('.op-social',data).length > 0 ){
+		let tmp = $('.op-social',data);
 		data = $.html(tmp);
 	}else if( $('figure',data).length > 0 ){
 		let tmp = $('figure',data);

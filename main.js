@@ -1,5 +1,5 @@
 /**
-    * Instant Markup v0.1.1-alpha
+    * Instant Markup v0.1.1-beta
     *
     * Copyright (c) 2016 mkv27
     * MIT Licensed
